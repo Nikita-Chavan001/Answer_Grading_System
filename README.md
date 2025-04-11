@@ -26,6 +26,15 @@ An intelligent web-based platform to automatically grade students’ subjective 
 | Hosting / APIs   | Flask Local Server                   |
 
 ---
+## 📸 Screenshots
+
+
+![ANSWERGRADING](https://github.com/user-attachments/assets/88b2ae79-bffb-4d94-a2b4-c60ada1c1ad1)
+
+
+
+
+---
 
 ## 📂 Project Structure
 
