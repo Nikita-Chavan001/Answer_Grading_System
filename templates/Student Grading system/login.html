@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Checker Login</title>
+    <link rel="stylesheet" href="login_signup.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                ASSIGNMENT <span>CHECKER</span>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <!-- Login Form -->
+            <div class="login-form" id="loginForm">
+                <h2>LOGIN</h2>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email or login" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button class="btn">LOGIN</button>
+                
+                <div class="signup-toggle">
+                    <a href="#" id="signupLink">Sign Up</a>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="signup-form" id="signupForm" style="display: none;">
+                <h2>SIGN UP</h2>
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Confrim Password" required>
+                </div>
+                <div class="radio-container">
+                    <label><input type="radio" name="role" value="student" required> Student</label>
+                    <label><input type="radio" name="role" value="teacher" required> Teacher</label>
+                </div>
+                <button class="btn">REGISTER</button>
+                <div class="back-to-login">
+                    <a href="#" id="loginLink">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const signupLink = document.getElementById('signupLink');
+        const loginLink = document.getElementById('loginLink');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        signupLink.addEventListener('click', () => {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        });
+
+        loginLink.addEventListener('click', () => {
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

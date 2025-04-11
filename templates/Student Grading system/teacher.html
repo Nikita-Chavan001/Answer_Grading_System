@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="teacher.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-dark mr-3">
+                <span class="material-icons">menu</span>
+            </button>
+            <a class="navbar-brand" href="#">Teacher's Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-primary sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" id="mainContent">
+            <div class="container">
+                <h2 class="mb-4">Create a New Assignment</h2>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <!-- Assignment Form -->
+                        <form id="assignmentForm">
+                            <div class="form-group">
+                                <label for="assignmentName">Assignment Name</label>
+                                <input type="text" class="form-control" id="assignmentName" placeholder="Enter assignment name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="assignmentDescription">Assignment Description</label>
+                                <textarea class="form-control" id="assignmentDescription" rows="4" placeholder="Enter the details of the assignment"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="assignmentFile">Assignment File</label>
+                                <input type="file" class="form-control-file" id="assignmentFile">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="solutionFile">Solution File</label>
+                                <input type="file" class="form-control-file" id="solutionFile">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dueDate">Due Date</label>
+                                <input type="datetime-local" class="form-control" id="dueDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marks">Marks</label>
+                                <input type="number" class="form-control" id="marks" placeholder="Enter total marks">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit Assignment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="teacher.js"></script>
+</body>
+</html>

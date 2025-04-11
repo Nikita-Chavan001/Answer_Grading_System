@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="container">
+                <div class="logo-container">
+                    <div class="logo">
+                        ASSIGNMENT <span>CHECKER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="{{ url_for('dashboard') }}" class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/student" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/student" class="nav-link text-black"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5001/" class="nav-link text-black"><span class="material-icons">show_chart</span> Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/login" class="nav-link text-black"><span class="material-icons">login</span> Back to Login</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="{}" class="nav-link text-black"><span class="material-icons">event</span> My Calendar</a> -->
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="{}" class="nav-link text-black"><span class="material-icons">work</span> Job</a> -->
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="{}" class="nav-link text-black"><span class="material-icons">assessment</span> Surveys</a> -->
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" id="main-content">
+            <div class="container">
+                <h2 class="mb-4">Active Courses</h2>
+                <div class="row">
+                    <!-- Course Card 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="{{ url_for('static', filename='images/AI.jpg') }}" class="card-img-top" alt="Machine Learning">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Machine Learning TY-A 24-25</h5>
+                                <a href="{{ url_for('dashboard')}}" class="btn btn-primary view-course-btn">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Card 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="{{ url_for('static', filename='images/ML.png') }}" class="card-img-top" alt="Operating System">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Artificial Intelligence 24-25</h5>
+                                <a href="#" class="btn btn-primary view-course-btn">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Course Cards -->
+                    <!-- Repeat above structure for other courses -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="{{ url_for('static', filename='images/OS.jpg') }}" class="card-img-top" alt="Operating System">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Operating System TY-A 24-25</h5>
+                                <a href="#" class="btn btn-primary view-course-btn">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/student.js') }}"></script>
+</body>
+</html>

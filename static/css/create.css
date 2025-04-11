@@ -1,0 +1,144 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fixed Header Styling */
+header {
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hidden initially */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px); /* Slide to the right */
+}
+
+/* Button position */
+#sidebarToggle {
+    position: absolute; /* Changed to absolute for fixed position */
+    left: 15px;
+    top: 15px; /* Adjusted for vertical centering */
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+/* Adjust button position when sidebar is active */
+#sidebarToggle.active {
+    transform: translateX(220px); /* Button doesn't move */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black; /* Set text color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: black; /* Change color on hover */
+    background-color: #f6b524; /* Optional background color on hover */
+}
+
+.nav-link .material-icons {
+    margin-right: 10px;
+    margin-left: -10px;
+    font-size: 24px;
+}
+
+/* Ensuring the main content has enough space */
+main {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+/* When sidebar is active, shift content */
+.sidebar.active + main {
+    margin-left: 220px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Success Animation */
+.success-animation {
+    margin-top: 10px;
+    display: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px solid #28a745;
+    position: relative;
+}
+
+.success-animation::before {
+    content: '✓';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #28a745;
+}
+
+.logo-container {
+    margin-left: 450px;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.logo span {
+    color: #f6b524;
+}
+
+/* Header styling */
+.navbar-brand {
+    margin-left: auto;
+    font-size: 24px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Assignments</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/listAI.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="{{ url_for('teacher_dashboard') }}"  class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="listML.html" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('teacher_dashboard') }}" class="nav-link text-black"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('create') }}" class="nav-link text-black"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('view_ctai') }}" class="nav-link text-black"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <h2 class="mb-4">Submissions for Assignment</h2>
+                
+                <!-- Table for displaying submissions -->
+                {% if submissions %}
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Assignment Name</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Roll Number</th>
+                                <th scope="col">File</th>
+                                <th scope="col">Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for submission in submissions %}
+                                <tr>
+                                    <td>{{ submission['assignment_name'] }}</td>
+                                    <td>{{ submission['name'] }}</td>
+                                    <td>{{ submission['rollno'] }}</td>
+                                    <td><a href="{{ submission['file_path'] }}" target="_blank">View File</a></td>
+                                    <td>{{ submission['timestamp'] }}</td>
+                                    <td>
+                                        <!-- View Result Button -->
+                                        <a href="{{ url_for('result', submission_id=submission['id']) }}" class="btn btn-primary">
+                                            View Result
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No submissions found.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+    
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/listAI.js') }}"></script>
+</body>
+</html>

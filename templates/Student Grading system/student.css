@@ -1,0 +1,99 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hidden initially */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: #007bff; /* Better color for visibility */
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px); /* Slide to the right */
+}
+
+/* Sidebar nav link styling */
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Adjust material-icons */
+.nav-link .material-icons {
+    margin-right: 10px;
+    margin-left: -10px;
+    font-size: 24px;
+}
+
+/* Header styling */
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto; /* Center the logo */
+}
+
+/* Sidebar Toggle Button styling */
+#sidebarToggle {
+    position: fixed;
+    left: 0; /* Align to the left edge */
+    z-index: 1100;
+    transition: left 0.3s ease-in-out; /* Slide in/out */
+}
+
+/* When sidebar is active, move the toggle button */
+.sidebar.active + #sidebarToggle {
+    left: 220px;
+}
+
+/* Ensuring the main content has enough space */
+main {
+    flex-grow: 1;
+    margin-left: 220px; /* To avoid overlap */
+    transition: margin-left 0.3s ease;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,88 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hidden initially */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px); /* Slide to the right */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.nav-link .material-icons {
+    margin-right: 10px;
+    margin-left: -10px;
+    font-size: 24px;
+}
+
+/* Ensuring the main content has enough space */
+main {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h5 {
+    margin-bottom: 15px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+strong {
+    color: #e74c3c; /* The red color for warnings */
+}
+
+p {
+    font-size: 14px;
+}
+
+/* Header styling */
+.navbar-brand {
+    margin-left: auto;
+    font-size: 24px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

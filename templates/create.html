@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Use Flask url_for for static CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light mr-3">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <!-- Update link to use Flask route -->
+                <li class="nav-item">
+                    <a href="{{ url_for('teacher_dashboard') }}" class="nav-link text-dark"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-dark"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" id="mainContent">
+            <div class="container mt-5">
+                <h2 class="mb-4">Create a New Assignment</h2>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form method="POST" action="{{ url_for('upload_assignment') }}" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="assignmentName" class="form-label">Assignment Name</label>
+                                <input type="text" class="form-control" id="assignmentName" name="assignmentName" required>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label for="assignmentDescription" class="form-label">Assignment Description</label>
+                                <textarea class="form-control" id="assignmentDescription" name="assignmentDescription" rows="3" required></textarea>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label for="dueDate" class="form-label">Due Date</label>
+                                <input type="datetime-local" class="form-control" id="dueDate" name="dueDate" required>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label for="assignmentFile" class="form-label">Assignment File</label>
+                                <input type="file" class="form-control" id="assignmentFile" name="assignmentFile" required>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label for="solutionFile" class="form-label">Solution File</label>
+                                <input type="file" class="form-control" id="solutionFile" name="solutionFile">
+                            </div>
+                    
+                            <button type="submit" class="btn btn-primary">Submit Assignment</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Assuming teacher.js exists in the static folder -->
+    <script src="{{ url_for('static', filename='js/teacher.js') }}"></script>
+</body>
+
+</html>

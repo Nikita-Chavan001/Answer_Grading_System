@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Checker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-dark">
+                <span class="material-icons">menu</span>
+            </button>
+            <a class="navbar-brand mx-auto" href="#">Assignment Checker</a>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-primary sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">show_chart</span> Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">forum</span> Discussion Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">event</span> My Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">work</span> Job</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white"><span class="material-icons">assessment</span> Surveys</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <h2 class="mb-4">Active Courses</h2>
+                <div class="row">
+                    <!-- Course Card 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="course1.jpg" class="card-img-top" alt="Machine Learning">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Machine Learning TYAI-A 2024-25</h5>
+                                <a href="#" class="btn btn-primary">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Card 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="course3.jpg" class="card-img-top" alt="Operating System">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Operating System TY-A 2024-25</h5>
+                                <a href="#" class="btn btn-primary">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Card 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="course3.jpg" class="card-img-top" alt="Artificial Intelligence">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Artificial Intelligence TY-A 2024-25</h5>
+                                <a href="#" class="btn btn-primary">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-4">
+                            <img src="course4.jpg" class="card-img-top" alt="Statistical Inference">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">TY-A Statistical Inference SEM-I AY 24-25</h5>
+                                <a href="#" class="btn btn-primary">View Course</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="student.js"></script>
+</body>
+</html>

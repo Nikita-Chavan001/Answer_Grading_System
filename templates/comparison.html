@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Comparison</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        table {
+            margin-top: 20px;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn {
+            margin-top: 10px;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #495057;
+        }
+        .container {
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Answer Comparison</h1>
+        <p><strong>Subject:</strong> {{ subject }} | <strong>Assignment:</strong> {{ assignment_number }}</p>
+        
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Teacher's Answer</th>
+                    <th>Student's Answer</th>
+                    <th>Similarity Score (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for teacher_answer, student_answer, similarity in comparisons %}
+                <tr>
+                    <td>{{ teacher_answer }}</td>
+                    <td>{{ student_answer }}</td>
+                    <td>{{ similarity * 100 | round(2) }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('results') }}" class="btn btn-secondary">Back to Results</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandsOn Assignment Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dashboard.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="{{ url_for('dashboard') }}" class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/student" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/student" class="nav-link text-black"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5001/" class="nav-link text-black"><span class="material-icons">show_chart</span> Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5000/login" class="nav-link text-black"><span class="material-icons">login</span> Log Out</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <h2 class="mb-4">Assignments</h2>
+
+                <!-- Loop through assignments and display them -->
+                {% for assignment in assignments %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>{{ assignment.name }}</h5>
+                                    <p><strong>Description:</strong> {{ assignment.description }}</p>
+                                    <p><strong>Due Date:</strong> {{ assignment.due_date }}</p>
+                                    <form id="uploadForm" action="/dashboard" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="assignment_id" value="{{ assignment.id }}">
+                                        <input type="hidden" name="assignment_name" value="{{ assignment.name }}">
+
+                                        <div class="form-group">
+                                            <label for="file">Upload Your Assignment</label>
+                                            <input type="file" name="file" id="file{{ assignment.id }}" class="form-control" required>
+                                        </div>
+
+                                        <div id="fileDisplayArea{{ assignment.id }}" class="mt-3" style="display:none;">
+                                            <p><strong>File uploaded: </strong><a href="#" id="uploadedFileLink{{ assignment.id }}" target="_blank">View File</a></p>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Submit Assignment</button>
+                                    </form>
+                                </div>
+                                <div class="col-12 text-right">
+                                    <a href="{{ url_for('static', filename=assignment.assignment_file.replace('uploads\\', 'uploads/')) }}" target="_blank" class="btn btn-secondary mb-2">View Question</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+        </main>
+    </div>
+
+       <!-- Bootstrap JS and Dependencies -->
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <script src="{{ url_for('static', filename='js/Dashboard.js') }}"></script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- For alert styling -->
+   
+       <script>
+           // Handle file input change event and display the uploaded file link
+           {% for assignment in assignments %}
+               document.getElementById("file{{ assignment.id }}").addEventListener("change", function(event) {
+                   var fileInput = event.target;
+                   var fileDisplayArea = document.getElementById("fileDisplayArea{{ assignment.id }}");
+                   var uploadedFileLink = document.getElementById("uploadedFileLink{{ assignment.id }}");
+   
+                   if (fileInput.files.length > 0) {
+                       var file = fileInput.files[0];
+                       var fileURL = URL.createObjectURL(file);
+   
+                       // Set the link to the uploaded file
+                       uploadedFileLink.href = fileURL;
+                       uploadedFileLink.textContent = file.name;
+   
+                       // Display the file link
+                       fileDisplayArea.style.display = "block";
+                   } else {
+                       fileDisplayArea.style.display = "none";
+                   }
+               });
+           {% endfor %}
+       </script>
+   
+</body>
+</html>

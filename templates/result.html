@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandsOn Assignment Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="student.html" class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="student.html" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <h2 class="mb-4">Result</h2>
+                
+                <!-- Result Table -->
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Assignment Name</th>
+                                    <th>Submission Date</th>
+                                    <th>Marks</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Data -->
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Assignment 1</td>
+                                    <td>2024-11-15</td>
+                                    <td>70/100</td>
+                                    <td>Excellent work!</td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>Assignment 2</td>
+                                    <td>2024-11-16</td>
+                                    <td>80/100</td>
+                                    <td>Good effort but needs improvement in clarity.</td>
+                                </tr>
+                                <tr>
+                                    <td>Michael Brown</td>
+                                    <td>Assignment 3</td>
+                                    <td>2024-11-17</td>
+                                    <td>85/100</td>
+                                    <td>Well done, minor errors noted.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>

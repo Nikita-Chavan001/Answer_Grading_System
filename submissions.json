@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "assignment_name": "Assignment Name",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\assignment_file_1.pdf",
+        "timestamp": "2024-11-19 19:14:01"
+    },
+    {
+        "id": 2,
+        "assignment_name": "assignment1",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\assignment_file_1.pdf",
+        "timestamp": "2024-11-19 19:14:07"
+    },
+    {
+        "id": 1,
+        "assignment_name": "Assignment Name",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\IBM_Z_Xplore___Concepts_Badge20241003-7-h4l1q8.pdf",
+        "timestamp": "2024-11-19 20:55:27"
+    },
+    {
+        "id": 2,
+        "assignment_name": "ABC",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\student_Mike_ML_1.pdf",
+        "timestamp": "2024-11-22 12:00:45"
+    },
+    {
+        "id": 2,
+        "assignment_name": "ABC",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\student_John_ML_1.pdf",
+        "timestamp": "2024-11-22 12:51:09"
+    },
+    {
+        "id": 2,
+        "assignment_name": "ABC",
+        "name": "Harshada",
+        "rollno": "45",
+        "file_path": "static/uploads\\student_Mike_ML_1.pdf",
+        "timestamp": "2024-11-23 10:26:48"
+    }
+]

@@ -1,0 +1,151 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hidden initially */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: white; /* Background white */
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px); /* Slide to the right */
+}
+
+/* Sidebar nav link styling */
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: #f6b524; /* Hover effect */
+    color: black;
+}
+
+/* Adjust material-icons */
+.nav-link .material-icons {
+    margin-right: 10px;
+    margin-left: -10px;
+    font-size: 24px;
+}
+
+/* Header styling */
+.navbar {
+    background-color: white; /* Background white */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+.navbar .btn-light {
+    color: black;
+}
+
+/* Sidebar Toggle Button styling */
+#sidebarToggle {
+    position: fixed;
+    left: 0; /* Align to the left edge */
+    z-index: 1200;
+    transition: left 0.3s ease-in-out; /* Slide in/out */
+}
+
+/* When sidebar is active, move the toggle button */
+.sidebar.active + #sidebarToggle {
+    left: 220px;
+}
+
+/* Ensuring the main content has enough space */
+main {
+    flex-grow: 1;
+    margin-left: 220px; /* To avoid overlap */
+    margin-top: 60px; /* To avoid overlap with fixed header */
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.active + main {
+    margin-left: 440px; /* Move right when sidebar is open */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust card margins to move them slightly left */
+.row {
+    margin-left: -10px; /* Moves cards slightly left */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+/* View Course button hover effect */
+.view-course-btn:hover {
+    background-color: #f6b524;
+    color: white;
+    
+}
+
+.view-course-btn
+{
+    color: black;
+    background-color: white;
+}
+
+.logo-container {
+    margin-left: 805px;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.logo span {
+    color: #f6b524;
+}
+
+.container {
+    margin-left: -100px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,152 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 70px; /* Adjusted for the height of the fixed header */
+    left: -220px; /* Hidden initially */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: #f8f9fa; /* Updated background for sidebar */
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px); /* Slide to the right */
+}
+
+/* Sidebar links */
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black; /* Updated text color */
+}
+
+/* Sidebar hover effect */
+.nav-link:hover {
+    background-color: #f6b524; /* Hover background for sidebar links */
+    color: black; /* Text color remains black on hover */
+}
+
+/* Main content */
+main {
+    flex-grow: 1;
+    margin-left: 0; /* Default margin when sidebar is hidden */
+    transition: margin-left 0.3s ease; /* Smooth transition */
+    margin-top: 75px; /* Increased padding to ensure heading visibility */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+strong {
+    color: #e74c3c; /* Red color for warnings */
+}
+
+p {
+    font-size: 14px;
+}
+
+/* Fixed Header styling */
+header {
+    background-color: white; /* Changed background color to white */
+    color: black; /* Changed text color to black */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+}
+
+.navbar-brand {
+    margin-left: auto;
+    font-size: 24px;
+}
+
+.logo-container {
+    margin-left: 450px;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.logo span {
+    color: #f6b524;
+}
+
+/* Sidebar and menu button together sliding */
+#sidebarToggle {
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* When sidebar is active, move menu button to the right */
+.sidebar.active + #sidebarToggle {
+    transform: translateX(220px);
+}
+
+/* Animation for file upload success */
+@keyframes uploadSuccess {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#fileDisplayArea {
+    display: none;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    animation: uploadSuccess 0.5s ease-in-out forwards;
+}
+
+#fileDisplayArea a {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

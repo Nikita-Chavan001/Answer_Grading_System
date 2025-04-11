@@ -1,0 +1,98 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 70px;
+    left: -220px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: #f8f9fa;
+}
+
+/* When Sidebar is active */
+.sidebar.active {
+    transform: translateX(220px);
+}
+
+/* Sidebar links */
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black;
+}
+
+.nav-link:hover {
+    background-color: #f6b524;
+    color: black;
+}
+
+/* Main content */
+main {
+    flex-grow: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+    margin-top: 75px;
+}
+
+/* Card Styling */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Fixed Header */
+header {
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Match viewCT navbar size */
+    height: 75px; /* Match viewCT navbar size */
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 420px;
+}
+
+.logo span {
+    color: #f6b524;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}

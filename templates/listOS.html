@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Submissions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="listML.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!-- Menu Button -->
+            <button id="sidebarToggle" class="btn btn-light" style="position: absolute; left: 0;">
+                <span class="material-icons">menu</span>
+            </button>
+            <!-- Logo -->
+            <div class="logo">
+                ASSIGNMENT <span>CHECKER</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="listOS.html" class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">view_list</span> Uploaded Assignments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">folder</span> Results</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <h2 class="mb-4">Assignment Submissions</h2>
+                <!-- Row 1 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4"><strong>Student Name:</strong> John Doe</div>
+                            <div class="col-md-4"><strong>File Name:</strong> assignment1.pdf</div>
+                            <div class="col-md-4 text-right">
+                                <button class="btn btn-primary">View Result</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4"><strong>Student Name:</strong> Jane Smith</div>
+                            <div class="col-md-4"><strong>File Name:</strong> assignment2.docx</div>
+                            <div class="col-md-4 text-right">
+                                <button class="btn btn-primary">View Result</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="listML.js"></script>
+</body>
+</html>

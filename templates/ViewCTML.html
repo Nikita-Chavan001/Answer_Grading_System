@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cource Teacher</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ViewCTML.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <a href="Teacher_Dashboard.html" class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="listML.html" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Machine Learning</h2>
+                    <a href="create.html" class="btn btn-success">Create Assignment</a>
+                </div>
+
+                <!-- Assignment Card 1 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>WAP to implement Find-S Algorithm</h5>
+                                <a href="listML.html" class="btn btn-primary">View Assignments Uploaded</a>
+                                <div id="fileDisplayArea"></div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p><strong>Due Date:</strong> 06-08-2024 23:58 PM</p>
+                            </div>
+                            <div class="col-md-6 text-right"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assignment Card 2 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>WAP to implement Find-S Algorithm</h5>
+                                <a href="listML.html" class="btn btn-primary">View Assignments Uploaded</a>
+                                <div id="fileDisplayArea2"></div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p><strong>Due Date:</strong> 06-08-2024 23:58 PM</p>
+                            </div>
+                            <div class="col-md-6 text-right"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assignment Card 3 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>WAP to implement Find-S Algorithm</h5>
+                                <a href="listML.html" class="btn btn-primary">View Assignments Uploaded</a>
+                                <div id="fileDisplayArea3"></div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p><strong>Due Date:</strong> 06-08-2024 23:58 PM</p>
+                            </div>
+                            <div class="col-md-6 text-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/viewCTML.js') }}"></script>
+</body>
+</html>

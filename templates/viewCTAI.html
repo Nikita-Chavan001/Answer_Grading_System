@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Teacher</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ViewCTAI.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container d-flex align-items-center">
+            <button id="sidebarToggle" class="btn btn-light">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="logo-container">
+                <div class="logo">
+                    ASSIGNMENT <span>CHECKER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar and Content -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-white sidebar">
+            <ul class="nav flex-column p-3">
+                <li class="nav-item">
+                    <!-- <a href="{{ url_for('teacher_dashboard') }}" class="nav-link text-dark"><span class="material-icons">dashboard</span> Dashboard</a> -->
+                </li>
+                               <li class="nav-item">
+                    <a href="{{ url_for('teacher_dashboard') }}" class="nav-link text-dark"><span class="material-icons">class</span> Courses Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="{{ url_for('teacher_dashboard') }}"  class="nav-link text-black"><span class="material-icons">dashboard</span> Dashboard</a> -->
+                </li>
+                <li class="nav-item">
+                    <a href="listML.html" class="nav-link text-black"><span class="material-icons">view_list</span> My Courses</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="{{ url_for('create') }}" class="nav-link text-black"><span class="material-icons">assignment</span> Create Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:5001/" class="nav-link text-black"><span class="material-icons">folder</span> View Submissions</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="#" class="nav-link text-dark"><span class="material-icons">event</span> My Calendar</a> -->
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('login') }}" class="nav-link text-dark"><span class="material-icons">login</span> Back To Login</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a href="#" class="nav-link text-dark"><span class="material-icons">assessment</span> Surveys</a> -->
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Machine Learning</h2>
+                <a href="http://127.0.0.1:5001/" class="btn btn-secondary">View Submissions</a>
+            </div>
+            
+                <!-- Assignment Cards -->
+                <div class="row">
+                    {% for assignment in assignments %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ assignment.name }}</h5>
+                                <p class="card-text">{{ assignment.description }}</p>
+                                <p class="card-text"><strong>Due Date:</strong> {{ assignment.due_date }}</p>
+                                
+                                {% if assignment.assignment_file %}
+                                <a href="{{ url_for('static', filename=assignment.assignment_file.replace('uploads\\', 'uploads/')) }}" target="_blank" class="btn btn-primary mb-2">View Assignment</a>
+                                {% endif %}
+                                
+                                {% if assignment.solution_file %}
+                                <a href="{{ url_for('static', filename=assignment.solution_file.replace('uploads\\', 'uploads/')) }}" target="_blank" class="btn btn-secondary mb-2">View Solution</a>
+                                {% endif %}
+                                
+                                <!-- View Uploaded Assignment Button -->
+                                <!-- <a href="{{ url_for('list_ai', assignment_id=assignment.id) }}" class="btn btn-info">View Submissions</a> -->
+                                <!-- <a href="results.html" class="btn btn-info">View Submissions</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/viewCTAI.js') }}"></script>
+
+</body>
+</html>
